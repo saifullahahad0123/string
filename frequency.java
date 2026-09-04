@@ -33,47 +33,75 @@ public class frequency {
 
         // System.out.println(answer+ " " + maxFrequency);
 
-        String s = " aabbcccd";
+        // String s = " aabbcccd";
 
-        int n = s.length();
+        // int n = s.length();
+
+        // int maxFreq = 0;
+
+        // char ans = s.charAt(0);
+
+        // char[] arr = s.toCharArray();
+
+        // Arrays.sort(arr);
+
+        // int i = 0;
+        // int j = 0;
+
+        // while (j < n) {
+
+        //     if (arr[i] == arr[j]) {
+        //         j++;
+        //     } 
+        //     else {
+
+        //         int freq = j - i;
+
+        //         if (freq > maxFreq) {
+        //             maxFreq = freq;
+        //             ans = arr[i];
+        //         }
+
+        //         i = j;
+        //     }
+        // }
+
+        // int freq = j - i;
+
+        // if (freq > maxFreq) {
+        //     maxFreq = freq;
+        //     ans = arr[i];
+        // }
+
+        // System.out.print(ans + " " + maxFreq);;
+ 
+
+
+        String s = "aabbcc";
+
+        int[] freq = new int[26];
+
+        for (int i = 0; i < s.length(); i++) {
+
+            char ch = s.charAt(i);
+
+            int idx = ch - 'a';
+
+            freq[idx]++;
+        }
 
         int maxFreq = 0;
+        char ans = ' ';
 
-        char ans = s.charAt(0);
+        for (int i = 0; i < 26; i++) {
 
-        char[] arr = s.toCharArray();
+            if (freq[i] > maxFreq) {
 
-        Arrays.sort(arr);
-
-        int i = 0;
-        int j = 0;
-
-        while (j < n) {
-
-            if (arr[i] == arr[j]) {
-                j++;
-            } 
-            else {
-
-                int freq = j - i;
-
-                if (freq > maxFreq) {
-                    maxFreq = freq;
-                    ans = arr[i];
-                }
-
-                i = j;
+                maxFreq = freq[i];
+                ans = (char)(i + 'a');
             }
         }
 
-        // Process the last character group
-        int freq = j - i;
-
-        if (freq > maxFreq) {
-            maxFreq = freq;
-            ans = arr[i];
-        }
-
-        System.out.print(ans + " " + maxFreq);;
+        System.out.println(ans);
     }
 }
